@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <title>blackboard</title>
+    <style>        
+        .btn-circle { 
+            width: 50px; 
+            height: 50px; 
+            padding: 7px 10px; 
+            border-radius: 25px; 
+            font-size: 10px; 
+            text-align: center; 
+        }
+    </style>
+  </head>
+  <body>
+    
+    <!--navbar-->
+       
+      <nav class="navbar navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>          
+            <a class="navbar-brand h1">Course Manager</a>                      
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">            
+            </form>
+            <button type="button" class="btn btn-circle btn-lg " style="background-color: red;">
+                <i class="fas fa-plus fa-2x" aria-hidden="true" style="color:white"></i>
+            </button>             
+        </div>
+      </nav>
+    <div class="container">
+        <table class="table table-borderless">
+            <thead>
+                <tr class="border-bottom">
+                    <th scope="col">Title</th>
+                    <th scope="col">Owned by</th>
+                    <th scope="col">Last modified by me</th>
+                    <th scope="col"><button class="btn"><i class="fas fa-grip-horizontal"></i></button></th>
+
+                </tr>
+            </thead>
+            <tbody>
+               <tr class="table-light border-bottom">
+                <th scope="row"><a href="#">Course 1</a></th>
+                <td>me</td>
+                <td>6.45 PM</td>
+                <td><button class="btn">X</button></td>          
+               </tr>
+
+               <tr class="table-light border-bottom">
+                    <th scope="row"> Course 2 </th>
+                    <td>me</td>
+                    <td>6.45 PM</td>
+                    <td><button class="btn">X</button></td>        
+                </tr>
+
+                <tr class="table-light border-bottom">
+                    <th scope="row"> Course 3 </th>
+                    <td>me</td>
+                    <td>6.45 PM</td>
+                    <td><button class="btn">X</button></td>       
+               </tr>
+
+               <tr class="table-light border-bottom">
+                    <th scope="row">Course 4</th>
+                    <td>me</td>
+                    <td>6.44 PM</td>
+                    <td><button class="btn">X</button></td> 
+                </tr>
+
+                <tr class="table-light border-bottom">
+                    <th scope="row">Course 5</th>
+                    <td>me</td>
+                    <td>6.44 PM</td>
+                    <td><button class="btn">X</button></td> 
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        <h3>Yesterday</h3>
+                    </th>
+                </tr>
+
+                <tr class="table-light border-bottom">
+                    <th scope="row">Course 5</th>
+                    <td>me</td>
+                    <td>6.44 PM</td>
+                    <td><button class="btn">X</button></td> 
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                        <h3>Previous 7 days</h3>
+                    </th>
+                </tr>
+
+
+                <tr class="table-light border-bottom">
+                    <th scope="row">Course 5</th>
+                    <td>me</td>
+                    <td>6.44 PM</td>
+                    <td><button class="btn">X</button></td> 
+                </tr>
+
+                <tr class="table-light border-bottom">
+                    <th scope="row">Course 5</th>
+                    <td>me</td>
+                    <td>6.44 PM</td>
+                    <td><button class="btn">X</button></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Popper and Bootstrap JS -->    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+   
+  </body>
+</html>
