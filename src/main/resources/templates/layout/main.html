@@ -22,22 +22,33 @@
         }
     </style>
   </head>
-  <body>
+  <body style="background-color: #DCDCDC; ">
     
     <!--navbar-->
        
       <nav class="navbar navbar-dark bg-primary sticky-top">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>                 
             <a class="navbar-brand h1">Course Manager</a>                      
             <form class="d-flex">
                 <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">            
             </form>
             <button type="button" class="btn btn-circle btn-lg " style="background-color: red;">
                 <i class="fas fa-plus fa-2x" aria-hidden="true" style="color:white"></i>
-            </button>             
+            </button>      
+            
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="../auth/login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../auth/login.html">Logout</a>
+                    </li>
+                </ul>
+              </div>   
         </div>
       </nav>
     <div class="container">
