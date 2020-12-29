@@ -6,14 +6,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
          <!-- Font Awesome css-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <title>blackboard</title>
         <style>
           .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
           .toggle.ios .toggle-handle { border-radius: 20px; }
+
+          .float-right {
+            float:right;   
+          }
+          .module-remove {                    
+            color:white
+          }
+
+          ul.module-list > li > a{
+            color:white;
+          }
+
+          .module-list:hover{
+            color:white;
+            text-decoration: none;
+          }
+
+          .topic-list-item {
+            color: black;
+          }
+
+          .topic-list-item:hover {
+            color: inherit;
+            text-decoration: none;
+          }
         </style>
     </head>
     <body style="background-color: #DCDCDC; ">
@@ -22,7 +50,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand"><span href="#" style="color:white;">X</span>  Course-Web Developement</a>
+          <a href="./main.html" class="navbar-brand"><i class="fa fa-remove"></i>  Course-Web Developement</a>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -48,176 +76,178 @@
         </div>
       </nav>       
 
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-3" style="background-color: #263141;">
-              <ul class="nav flex-column nav-pills mb-3">
-                <a class="nav-link mr-2 mt-3 bg-dark " href="#">
-                  Module 1: HTML/CSS
-                  <span style="color:white; float:right">X</span>
-                </a>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3" style="background-color: #263141;">
+            <ul class="nav flex-column nav-pills mb-3 module-list">
+              <li id="1">
+                <a class="nav-link mr-2 mt-3 bg-dark template-module-list-item"  href="#">
+                  Module 1: HTML/CSS   
+                  <i class="fa fa-remove module-remove float-right" ></i>                
+                </a>                 
+              </li>
+              <li id="2">
                 <a class="nav-link mr-2 mt-3 bg-dark" href="#">
                   Module 2: Bootstrap
-                  <span style="color:white; float:right">X</span>
+                  <i class="fa fa-remove module-remove float-right" ></i>
                 </a>
-                <a class="nav-link mr-2 mt-3 bg-dark" href="#">
-                  Module 3: JavaScript
-                  <span style="color:white; float:right">X</span>
-                </a>
-                <a class="nav-link mr-2 mt-3 bg-dark" href="#">
-                  Module 4: React
-                  <span style="color:white; float:right">X</span>
-                </a>
-                <a class="nav-link mr-2 mt-3 bg-dark" href="#">
-                  Module 5: Redux
-                  <span style="color:white; float:right">X</span>
-                </a>
-              </ul>             
+              </li>                                         
+            </ul>
+            <div class="row mt-3 bg-dark mx-auto" >
+              <div class="col-9">
+                <input type="text" class="form-control mt-2 mb-2" id="newModule" placeholder="New Module Name">
+              </div>
+              <div class="col-2 offset-sm-1">
+                <btn class="btn btn-success mt-2  float-right" id="add-module">
+                  <i class="fa fa-plus" ></i>
+                </btn>
+              </div>
+            </div>              
+          </div>
+          <div class="col-md-9"style="padding:30px; ">
+           
+            <div class="row">
+              <div class="col-sm-4">  
+                <div class="input-group">
+                  <input type="text" id="newTopicName" class="form-control" placeholder="Topic Name"> 
+                  <span class="input-group-append" style="margin-left: 5px;">
+                    <button class="btn topic-list-item bg-secondary" id="addTopic"><i class="fa fa-plus"></i></button>               
+                  </span>
+                </div>                                                
+              </div>             
             </div>
-            <div class="col-md-9"style="padding:30px; ">
-              <!-- Topic pills-->
-              <div class="row">
-                <div class="col-12">                  
-                  <ul class="nav nav-pills">
-                    <li class="nav-item mr-5 mb-2" style="margin-right: 10px;">
-                      <a class="nav-link bg-secondary" aria-current="page" href="#">Topic 1</a>
-                    </li>
-                    <li class="nav-item mr-5 mb-2" style="margin-right: 10px;">
-                      <a class="nav-link bg-secondary" href="#">Topic 2</a>
-                    </li>
-                    <li class="nav-item mr-2 mb-2" style="margin-right: 10px;">
-                      <a class="nav-link bg-secondary" href="#">Topic 3</a>
-                    </li>
-                    <li class="nav-item mr-2 mb-2" style="margin-right: 10px;">
-                      <a class="nav-link bg-secondary" href="#">Topic 4</a>
-                    </li>
-                    <li class="nav-item mr-2 mb-2" style="margin-right: 10px;">
-                      <a class="nav-link bg-secondary" href="#"><i class="fas fa-plus"></i></a>
-                    </li>
-                  </ul> 
+
+             <!-- Topic pills-->
+            <div class="row mt-2">
+              <div class="col-12">
+                <ul class="nav nav-pills pull-left topic-list">
+                  <li class="nav-item mr-5 mb-2 topic-template" hidden style="margin-right: 10px;">
+                    <a class="nav-link btn bg-secondary topic-list-item" aria-current="page" href="#">Topic 1</a>
+                  </li>                                                                  
+                </ul> 
+              </div>
+            </div>
+
+            <!-- Save/Preview-->
+            <div class="row">
+              <div class="col-12" style="text-align: right!important;">
+                <button type="button" class="btn btn-success mr-2">Save</button>
+                <label for="btnPreview">Preview</label>
+                <input type="checkbox" id="btnPreview" checked data-toggle="toggle" data-style="ios">
+              </div>
+            </div>
+
+            <!-- Widget list begins... -->  
+            <!-- widget 1-->            
+            <div class="widget border border-dark mt-3 mb-3">
+              
+              <div class="row mt-2 p-2">
+                <div class="col-md-5 col-12">
+                  <h3>Heading widget</h3>
+                </div>
+                <div class="col-md-3 col-12">
+                  <button class="btn btn-warning"><i class="fa fa-arrow-up"></i></button>
+                  <button class="btn btn-warning"><i class="fa fa-arrow-down"></i></button>
+                </div>
+                <div class="col-md-3 col-12">
+                  <select class="form-control" id="widgetType">
+                    <option> Heading</option>
+                    <option selected>Paragraph</option>
+                    <option>List</option>
+                    <option>Image</option>
+                    <option>Link</option>
+                  </select>
+                </div>
+                <div class="col-md-1 col-12">
+                  <button class="btn btn-danger">X</button>
                 </div>
               </div>
 
-              <!-- Save/Preview-->
-              <div class="row">
-                <div class="col-12" style="text-align: right!important;">
-                  <button type="button" class="btn btn-success">Save</button>
-                  <label for="btnPreview">Preview</label>
-                  <input type="checkbox" id="btnPreview" checked data-toggle="toggle" data-style="ios">
+              <div class="row mt-2 p-2">
+                <div class="mb-2">                    
+                  <input type="text" class="form-control" id="headingText" placeholder="Heading Text">
+                </div>
+
+                <div class="mb-2">   
+                  <select class="form-control">                      
+                    <option selected>Heading 1</option>
+                    <option>Heading 2</option>
+                    <option>Heading 3</option>
+                    <option>Heading 4</option>
+                    <option>Heading 5</option>
+                  </select>                                     
+                </div>
+
+                <div class="mb-2">                  
+                  <input type="text" class="form-control" id="widgetName" placeholder="Widget Name">
+                </div>
+
+                <div class="mb-2 mt-2">
+                  <h4>Preview</h4>
+                  <h1>Heading Text</h1>
+                </div>
+              </div> 
+            </div> <!-- end of widget 1-->    
+            
+            <!-- <div class="widget border border-dark mt-3 mb-3">
+              
+              <div class="row mt-2 p-2">
+                <div class="col-md-5 col-12">
+                  <h3>Heading widget</h3>
+                </div>
+                <div class="col-md-3 col-12">
+                  <button class="btn btn-warning"><i class="fa fa-arrow-up"></i></button>
+                  <button class="btn btn-warning"><i class="fa fa-arrow-down"></i></button>
+                </div>
+                <div class="col-md-3 col-12">
+                  <select class="form-control" id="widgetType">
+                    <option> Heading</option>
+                    <option selected>Paragraph</option>
+                    <option>List</option>
+                    <option>Image</option>
+                    <option>Link</option>
+                  </select>
+                </div>
+                <div class="col-md-1 col-12">
+                  <button class="btn btn-danger">X</button>
                 </div>
               </div>
 
-              <!-- Widget list begins... -->  
-              <!-- widget 1-->            
-              <div class="widget border border-dark mt-3 mb-3">
-                
-                <div class="row mt-2 p-2">
-                  <div class="col-md-5 col-12">
-                    <h3>Heading widget</h3>
-                  </div>
-                  <div class="col-md-3 col-12">
-                    <button class="btn btn-warning"><i class="fas fa-arrow-up"></i></button>
-                    <button class="btn btn-warning"><i class="fas fa-arrow-down"></i></button>
-                  </div>
-                  <div class="col-md-3 col-12">
-                    <select class="form-control" id="widgetType">
-                      <option> Heading</option>
-                      <option selected>Paragraph</option>
-                      <option>List</option>
-                      <option>Image</option>
-                      <option>Link</option>
-                    </select>
-                  </div>
-                  <div class="col-md-1 col-12">
-                    <button class="btn btn-danger">X</button>
-                  </div>
+              <div class="row mt-2 p-2">
+                <div class="mb-2">                    
+                  <input type="text" class="form-control" id="headingText" placeholder="Heading Text">
                 </div>
 
-                <div class="row mt-2 p-2">
-                  <div class="mb-2">                    
-                    <input type="text" class="form-control" id="headingText" placeholder="Heading Text">
-                  </div>
-
-                  <div class="mb-2">   
-                    <select class="form-control">                      
-                      <option selected>Heading 1</option>
-                      <option>Heading 2</option>
-                      <option>Heading 3</option>
-                      <option>Heading 4</option>
-                      <option>Heading 5</option>
-                    </select>                                     
-                  </div>
-
-                  <div class="mb-2">                  
-                    <input type="text" class="form-control" id="widgetName" placeholder="Widget Name">
-                  </div>
-
-                  <div class="mb-2 mt-2">
-                    <h4>Preview</h4>
-                    <h1>Heading Text</h1>
-                  </div>
-                </div> 
-              </div> <!-- end of widget 1-->    
-              
-              <div class="widget border border-dark mt-3 mb-3">
-                
-                <div class="row mt-2 p-2">
-                  <div class="col-md-5 col-12">
-                    <h3>Heading widget</h3>
-                  </div>
-                  <div class="col-md-3 col-12">
-                    <button class="btn btn-warning"><i class="fas fa-arrow-up"></i></button>
-                    <button class="btn btn-warning"><i class="fas fa-arrow-down"></i></button>
-                  </div>
-                  <div class="col-md-3 col-12">
-                    <select class="form-control" id="widgetType">
-                      <option> Heading</option>
-                      <option selected>Paragraph</option>
-                      <option>List</option>
-                      <option>Image</option>
-                      <option>Link</option>
-                    </select>
-                  </div>
-                  <div class="col-md-1 col-12">
-                    <button class="btn btn-danger">X</button>
-                  </div>
+                <div class="mb-2">   
+                  <select class="form-control">                      
+                    <option selected>Heading 1</option>
+                    <option>Heading 2</option>
+                    <option>Heading 3</option>
+                    <option>Heading 4</option>
+                    <option>Heading 5</option>
+                  </select>                                     
                 </div>
 
-                <div class="row mt-2 p-2">
-                  <div class="mb-2">                    
-                    <input type="text" class="form-control" id="headingText" placeholder="Heading Text">
-                  </div>
+                <div class="mb-2">                  
+                  <input type="text" class="form-control" id="widgetName" placeholder="Widget Name">
+                </div>
 
-                  <div class="mb-2">   
-                    <select class="form-control">                      
-                      <option selected>Heading 1</option>
-                      <option>Heading 2</option>
-                      <option>Heading 3</option>
-                      <option>Heading 4</option>
-                      <option>Heading 5</option>
-                    </select>                                     
-                  </div>
+                <div class="mb-2 mt-2">
+                  <h4>Preview</h4>
+                  <h1>Heading Text</h1>
+                </div>
+              </div> 
+            </div> end of widget 2  -->
+            
+          </div> <!-- end of col-md-9 -->
+        </div> <!-- end of row-->
+      </div> <!-- end of container -->
 
-                  <div class="mb-2">                  
-                    <input type="text" class="form-control" id="widgetName" placeholder="Widget Name">
-                  </div>
-
-                  <div class="mb-2 mt-2">
-                    <h4>Preview</h4>
-                    <h1>Heading Text</h1>
-                  </div>
-                </div> 
-              </div> <!-- end of widget 2--> 
-              
-            </div> <!-- end of col-md-9 -->
-          </div> <!-- end of row-->
-        </div> <!-- end of container -->
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Popper and Bootstrap JS -->   
-        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+          
+      <script src="./course-editor.js"></script>
+      <!-- Popper and Bootstrap JS -->   
+      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     </body>
 </html>
