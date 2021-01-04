@@ -1,12 +1,10 @@
 import './App.css';
-import CourseEditor from './components/course-editor/CourseEditor';
-//import Course from './components/course-list/Course';
+import WhiteBoard from './containers/WhiteBoard';
 
 function App() {
   return (
     <div className="App" >
-        {/* <Course /> */}
-        <CourseEditor />
+        <WhiteBoard />
     </div>
   );
 }

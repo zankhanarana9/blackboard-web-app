@@ -15,7 +15,7 @@ const CourseEditorNavBar = function() {
                     aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                 </button>
-                <a href="./main.html" className="navbar-brand">
+                <a href="/" className="navbar-brand">
                     <i className="fa fa-times pr-2"></i>  
                     &nbsp;Course-Web Developement
                 </a>
@@ -25,7 +25,7 @@ const CourseEditorNavBar = function() {
                         navBarItems.map((item,index) => {
                             return (
                                 <li className="nav-item" key={index}>
-                                    <a className="nav-link" href="/">{item}</a>
+                                    <a className="nav-link" href="#">{item}</a>
                                 </li>
                             );
                         })

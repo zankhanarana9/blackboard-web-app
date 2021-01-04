@@ -1,28 +1,9 @@
 import React from 'react';
 import CourseListItem from './CourseListItem';
 import CourseHeader from './CourseHeader';
+import {Link} from 'react-router-dom';
 
-const Courses = [ 
-    {
-        title: "Course 1",
-        ownedBy : "me",
-        lastModifiedAt : "6.45 PM",
-        id: 1        
-    },
-    {
-        title: "Course 2",
-        ownedBy : "me",
-        lastModifiedAt : "6.45 PM",
-        id: 2      
-    },
-    {
-        title: "Course 3",
-        ownedBy : "me",
-        lastModifiedAt : "6.44 PM",
-        id: 3        
-    }
-]
-const CourseList = function() {
+const CourseList = function({Courses}) {
     return (
         <div className ="container">
             <CourseHeader />            
@@ -33,8 +14,10 @@ const CourseList = function() {
             </div>
            {
                Courses.map(course => {
-                   return (<CourseListItem id= {course.id}
-                        Course={course} />)
+                   return (<Link to={`/course-editor/${course.id}`} key= {course.id}> 
+                    <CourseListItem 
+                        Course={course} />
+                   </Link>)
                })
            }
         </div>

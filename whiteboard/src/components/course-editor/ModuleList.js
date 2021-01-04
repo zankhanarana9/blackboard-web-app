@@ -1,29 +1,50 @@
 import React from 'react';
+import { addModule, deleteModule, getAllCourses } from '../../services/CourseService';
+import ModuleListItem from './ModuleListItem';
 
-const modules = [
-    {title : "Module 1:  HTML/CSS", id: '123'},
-    {title : "Module 2: Bootstrap", id: '234'},
-    {title : "Module 3: JavaScript", id: '345'},
-    {title : "Module 4: JQuery", id: '456'},
-    {title : "Module 5: ReactJS", id: '567'},
-    {title : "Module 6: Redux", id: '678'},
-];
 
-const ModuleList = function() {
-    return (     
-          <div className="col-md-3" style={{backgroundColor: "#263141"}}>
+class ModuleList extends React.Component {
+  
+  constructor(props){
+    super(props);    
+    this.state={
+      Modules:this.props.Modules 
+    }
+  }
+  
+  deleteModule = (courseId, moduleId) => {    
+    deleteModule(courseId,moduleId)
+    .then(x => {
+      this.setState( {
+        Modules: x
+      });
+    });    
+      
+  }
+
+  addModule = (courseId) => {
+      addModule(courseId)
+        .then(x => {
+          this.setState({
+            Modules: x
+          });
+        });
+  }
+
+  render(){
+      return (     
+        <div className="col-md-3" style={{backgroundColor: "#263141"}}>
           <ul className="nav flex-column nav-pills mb-3 module-list">
-            {
-                modules.map(module => {
+          
+            {              
+                this.state.Modules.map(module => {
                     return (
-                      <li key={module.id}>
-                      <a className="nav-link mr-2 mt-3 bg-dark template-module-list-item"  href="/">
-                        {module.title}
-                        <i className="fa fa-times module-remove float-right" ></i>                
-                      </a>                 
-                    </li> 
+                      <ModuleListItem key={module.id}
+                        Module={module} 
+                        DeleteModule = {this.deleteModule}                         
+                        />
                     )
-                })
+                })                
             }                                     
           </ul>
           <div className="row mt-3 bg-dark mx-auto" >
@@ -32,12 +53,15 @@ const ModuleList = function() {
             </div>
             <div className="col-2 offset-sm-1">
               <button className="btn btn-success mt-2  float-right" id="add-module">
-                <i className="fa fa-plus" ></i>
+                <i className="fa fa-plus" 
+                  onClick ={() => this.addModule(123)}
+                ></i>
               </button>
             </div>
           </div>              
         </div>   
-    );
+      ) 
+   }
 }
 
 export default ModuleList;

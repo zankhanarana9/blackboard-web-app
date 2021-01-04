@@ -4,11 +4,11 @@ import CourseListNav from './Nav';
 import './Course.css';
 import CourseList from './CourseList';
 
-const Course = function() {
+const Course = function({Courses}) {
     return (
         <div className="container-fluid">
-            <CourseListNav />
-            <CourseList />
+            <CourseListNav />        
+            <CourseList Courses={Courses}/>
         </div>
     );
 }
