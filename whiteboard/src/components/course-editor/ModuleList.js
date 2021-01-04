@@ -8,6 +8,7 @@ class ModuleList extends React.Component {
   constructor(props){
     super(props);    
     this.state={
+      EditMode: false,
       Modules:this.props.Modules 
     }
   }
@@ -22,6 +23,10 @@ class ModuleList extends React.Component {
       
   }
 
+  updateModule = (moduleId) => {
+    alert("Edit me 2");
+  }
+
   addModule = (courseId) => {
       addModule(courseId)
         .then(x => {
@@ -33,7 +38,8 @@ class ModuleList extends React.Component {
 
   render(){
       return (     
-        <div className="col-md-3" style={{backgroundColor: "#263141"}}>
+        !this.state.EditMode &&
+        (<div className="col-md-3" style={{backgroundColor: "#263141"}}>
           <ul className="nav flex-column nav-pills mb-3 module-list">
           
             {              
@@ -41,7 +47,9 @@ class ModuleList extends React.Component {
                     return (
                       <ModuleListItem key={module.id}
                         Module={module} 
-                        DeleteModule = {this.deleteModule}                         
+                        DeleteModule = {this.deleteModule}  
+                        EditModule = {this.editModule}    
+                        UpdateModule = {this.updateModule}
                         />
                     )
                 })                
@@ -59,7 +67,7 @@ class ModuleList extends React.Component {
               </button>
             </div>
           </div>              
-        </div>   
+        </div> )
       ) 
    }
 }
