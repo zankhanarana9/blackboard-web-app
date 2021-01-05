@@ -5,17 +5,17 @@ const Widget = function() {
         <div className="widget border border-dark mt-3 mb-3">
               
         <div className="row mt-2 p-2">
-          <div className="col-md-4 text-left">
+          <div className="col-md-5 text-left">
             <h3>Heading widget</h3>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-2">
             <div className="row">
-                <div className="col">
+                <div className="col-1 mr-3">
                     <button className="btn btn-warning ">
                         <i className="fa fa-arrow-up"></i>
                     </button>
                 </div>
-                <div className="col">
+                <div className="col-1">
                     <button className="btn btn-warning">
                         <i className="fa fa-arrow-down"></i>
                     </button>

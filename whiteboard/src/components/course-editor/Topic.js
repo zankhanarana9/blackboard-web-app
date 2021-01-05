@@ -2,6 +2,7 @@ import React from 'react';
 import TopicPill from './TopicPill';
 import './CourseEditor.css';
 import Widget from './Widget';
+import CourseService from '../../services/CourseService';
 
 class Topic extends React.Component {
 
@@ -14,14 +15,18 @@ class Topic extends React.Component {
     }
 
     addTopic = () => {
-        let topics = this.props.Topics;
-        topics.push({
-          id:(new Date()).getTime(),
-          title: this.state.newTopicTitle,
-        });
-        this.setState({
-          Topics: topics
-        })
+      let newTopic = {
+        id:(new Date()).getTime(),
+        title: this.state.newTopicTitle,
+      };  
+      CourseService.addTopic(this.props.CourseId, 
+          this.props.SelectedModule.id, 
+          this.props.SelectedLesson.id, 
+          newTopic).then(topics => {
+            this.setState({
+              Topics: topics
+            })
+          });                
     }
 
     formChanged = (event) => {
@@ -29,6 +34,8 @@ class Topic extends React.Component {
         newTopicTitle: event.target.value
       })
     }
+
+    
     render() {
       return (
         <div className="col-md-9" >
@@ -54,14 +61,14 @@ class Topic extends React.Component {
             </div> 
             <div className="row mt-3">
                 <div className="col-12">
-                    <ul className="nav nav-pils pull-left topic-list">
-                       {console.log(this.props.Topics)}
+                    <ul className="nav nav-pils pull-left topic-list">                       
                        {
                          
                         this.props.Topics.map(topic => {
                           return(
                               <TopicPill 
                                 IsSelectedTopic = {this.props.SelectedTopic === topic}
+                                SelectTopic={this.props.SelectTopic}
                                 Topic={topic}
                                 key={topic.id}
                               />
@@ -71,13 +78,13 @@ class Topic extends React.Component {
                     </ul>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-12" style={{textAlign: "right!important"}}>
+            <div className="row pr-2">
+                <div className="col-12 text-right">
                 <button type="button" className="btn btn-success mr-2">Save</button>
-                <label htmlFor="btnPreview" className="mr-1">Preview</label>
+                <label htmlFor="btnPreview" className="mr-2">Preview</label>
                 <input type="checkbox" 
                     id="btnPreview" 
-                    className="mt-1"
+                    className="m  t-1"
                     data-toggle="toggle" 
                     data-style="ios" />
                 </div>

@@ -1,46 +1,78 @@
 import courseList from './courses.json';
 
 let courses = courseList;
-export const getAllCourses= function() {
-    return courses;    
-}
 
-export const getModulesByCourseId = function(id) {
-    return courses.find(x => x.id === id).modules;
-}
+//CRUD operations on courses
+//get all courses
+//get courses by id
 
-export const deleteModule = async function(courseId, moduleId) {
-    let course = await courses.find(x => x.id === courseId)    
-    course.modules = await course.modules.filter(x => x.id !== moduleId);           
-    return course.modules; 
-}
-
-export const addModule = async function(courseId) {
-    let course = await courses.find(x => x.id === courseId);
-    course.modules.push({
-        title: "New Module", id:`${(new Date()).getTime()}`
-    });
-    console.log(course.modules);
-    return course.modules;
-}
-
-export const UpdateModule =  async function(modules, moduleId, newTitle) {
-    modules.map(x => {
-        if(x.id === moduleId)  {
-            x.title = newTitle;
+class CourseService {
+    static getAllCourses = function() {
+        return courses;    
+    }
+    
+    static getCourseById =  function(id) {
+        return courses.find(x => x.id === id);
+    }
+    
+    static updateCourseTitle = async function(id, newTitle) {
+        return courses.map(x => {
+            if(x.id === id) {
+                x.title = newTitle;
+            }
+            return x;
+        });
+    }
+    
+    //Operations on module
+    // getModulesByCourseId in-> courseId, returns []
+    // updateModuleTitle(courseId, module)
+    // add a new module(courseid, module)
+    static getModulesByCourseId = function(id) {
+        return courses.find(x => x.id === id).modules;
+    }
+    
+    static addModuleToCourse = async function(courseId, module) {
+        let course = await this.getCourseById(courseId);
+        if(course !== undefined) {
+            course.modules.push(module);
         }
-        return x;
-    });
-    return modules;
+        return course.modules;
+    }
+    
+    static deleteModule = async function(courseId, moduleId) {
+        let course = await this.getCourseById(courseId); 
+        if(course !== undefined) {
+            course.modules = await course.modules.filter(x => x.id !== moduleId);           
+        }       
+        return course.modules; 
+    }
+    
+    static UpdateModule =  async function(modules, moduleId, newTitle) {
+        modules.map(x => {
+            if(x.id === moduleId)  {
+                x.title = newTitle;
+            }
+            return x;
+        });
+        return modules;
+    }
+    
+    static getLessonsByCourseIdAndModuleId= function(courseId, moduleId) {
+        let lessons = courses.find(x => x.id === courseId)
+        .modules.find(y => y.id === moduleId).lessons;
+        console.log(lessons);
+        return lessons; 
+    }    
+
+    static addTopic = async function(courseId, moduleId,lessonId, newTopic) {
+        let course = await this.getCourseById(courseId);
+        let module = course.modules.find(x => x.id === moduleId);
+        let lesson = module.lessons.find(x=> x.id === lessonId);
+        lesson.topics.push(newTopic);  
+        return lesson.topics;
+    }
 }
 
-export const getLessonsByCourseIdAndModuleId= function(courseId, moduleId) {
-    let lessons = courses.find(x => x.id === courseId)
-    .modules.find(y => y.id === moduleId).lessons;
-    console.log(lessons);
-    return lessons; 
-}
+export default CourseService;
 
-export const getCourseById =  function(id) {
-    return courses.find(x => x.id === id);
-}

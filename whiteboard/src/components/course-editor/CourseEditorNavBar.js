@@ -15,7 +15,7 @@ class CourseEditorNavBar extends React.Component {
    }
    render() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-module sticky-top">
             <div className="container-fluid">
                 <button className="navbar-toggler" 
                     type="button" 

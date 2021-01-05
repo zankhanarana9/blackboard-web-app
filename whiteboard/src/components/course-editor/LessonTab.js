@@ -1,22 +1,17 @@
 import React from 'react';
 
-class LessonTab extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return(
-            <li className="nav-item" >
-                <a 
-                 className= {this.props.IsSelectedLesson ? "nav-link bg-lesson-active" : "nav-link"}
-                 href="#"
-                 onClick={() => {this.props.SelectLesson(this.props.Lesson)}}>
-                    {this.props.Lesson.title}
-                </a>
-            </li>
-        )
-    }
+const LessonTab = function({Lesson, SelectLesson, IsSelectedLesson}) {
+    return(
+        <li className="nav-item">
+            <button className="btn"
+                 onClick={() => {SelectLesson(Lesson)}}>
+                <span className={IsSelectedLesson ? "lesson-active" : "lesson-tab"} >
+                    {Lesson.title}
+                </span>
+           
+            </button>
+        </li>
+    )
 }
 
 export default LessonTab;

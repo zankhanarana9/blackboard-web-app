@@ -8,10 +8,13 @@
 .float-right {
   float:right;   
 }
-.module-remove {                    
+.module-edit, .lesson-active {                    
   color:white
 }
 
+.lesson-tab {
+  color: gray
+}
 ul.module-list > li > a{
   color:white;
 }
@@ -40,4 +43,13 @@ ul.module-list > li > a{
 
 .bg-topic-active {
   background-color: #56BC8A;
+}
+
+.template-module-list-item {
+  color: white;
+  font-weight: 500;
+}
+
+.bg-module {
+  background-color: #212529!important;
 }

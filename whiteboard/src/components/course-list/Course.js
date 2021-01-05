@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
-import CourseListNav from './Nav';
+import CourseListNav from './CourseListNav';
 import './Course.css';
 import CourseList from './CourseList';
 

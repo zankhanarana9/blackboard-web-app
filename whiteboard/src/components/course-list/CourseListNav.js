@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-const Nav = function() {
+const CourseListNav = function() {
     return (
         <nav className="navbar navbar-dark bg-primary sticky-top">
         <div className="container-fluid">
@@ -48,4 +48,4 @@ const Nav = function() {
     )
 }
 
-export default Nav;
+export default CourseListNav;

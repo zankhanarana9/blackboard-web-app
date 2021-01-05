@@ -25,23 +25,28 @@ class ModuleListItem extends React.Component{
     render() {
         return(
             !this.state.isEdit ?
-            (<li>
-            
-                <a className=
-                    {this.props.IsModuleSelected ? 
-                    "nav-link mr-2 mt-3 template-module-list-item text-left bg-active" :
-                     "nav-link mr-2 mt-3 bg-dark template-module-list-item text-left"}                      
-                     onClick={() => this.props.SelectModule(this.props.Module)}>
-                {this.props.SelectedModule.title}                
-                <span className="float-right">
-                    <i className="fa fa-edit mr-2" 
-                        onClick={() => this.setState({isEdit: true})}
-                    ></i>
-                    <i className="fa fa-times module-remove " 
-                        onClick={() => this.props.DeleteModule(this.props.Module)}
-                    ></i>   
-                </span>            
-                </a>                 
+            (<li>            
+                <div className={this.props.IsModuleSelected ? 
+                  "row bg-active p-1 mx-auto mt-1" :
+                  "row bg-module p-1 mx-auto mt-1"} 
+                  onClick={() => this.props.SelectModule(this.props.Module)}>
+                    <div className="col-9">
+                        <button 
+                            className= "btn" >
+                                <span className="template-module-list-item"> {this.props.SelectedModule.title}    </span>                                               
+                        </button>  
+                    </div>
+                    <div className="col-3">
+                        <span className="float-right module-edit">
+                            <i className="fa fa-edit mr-2" 
+                                onClick={() => this.setState({isEdit: true})}
+                            ></i>
+                            <i className="fa fa-times" 
+                                onClick={() => this.props.DeleteModule(this.props.Module.id)}
+                            ></i>   
+                        </span> 
+                    </div>
+                </div>               
             </li> 
             ) :
             (

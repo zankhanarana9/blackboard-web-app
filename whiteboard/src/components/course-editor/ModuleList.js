@@ -1,7 +1,11 @@
 import React from 'react';
-import { addModule, deleteModule, getAllCourses, UpdateModule } from '../../services/CourseService';
+import CourseService from '../../services/CourseService';
+
 import ModuleListItem from './ModuleListItem';
 
+//responsible for the whole list
+//add a new module
+//delete a module
 
 class ModuleList extends React.Component {
   
@@ -14,8 +18,8 @@ class ModuleList extends React.Component {
     }
   }
   
-  deleteModule = (courseId, moduleId) => {        
-    deleteModule(courseId,moduleId)
+  deleteModule = (moduleId) => {        
+    CourseService.deleteModule(this.props.CourseId,moduleId)
     .then(x => {
       this.setState( {
         Modules: x
@@ -25,7 +29,7 @@ class ModuleList extends React.Component {
   }
 
   updateModule = (moduleId, newTitle) => {
-     UpdateModule(this.state.Modules, moduleId,newTitle)
+     CourseService.UpdateModule(this.state.Modules, moduleId,newTitle)
       .then(x => {
         this.setState(prevState => {
           return(
@@ -38,15 +42,21 @@ class ModuleList extends React.Component {
   }
 
   addModule = () => {
-      let modules = this.props.Modules;
-      modules.push({
-        id:(new Date().getTime()),
-        title: this.state.NewModuleName,
-        lessons:[]
+    let newModule ={
+      id:(new Date().getTime()),
+      title: this.state.NewModuleName,
+      lessons:[{
+        id:new Date().getTime(),
+        title: '',
+        topics:[]
+      }]
+    }  
+    CourseService.addModuleToCourse(this.props.CourseId, newModule)
+      .then(modules => {
+        this.setState({
+          Modules : modules
+        })
       });
-      this.setState({
-        Modules: modules
-      })
   }
 
   formChanged = (event) => {
@@ -59,7 +69,7 @@ class ModuleList extends React.Component {
   render(){
       return (             
         <div className="col-md-3" style={{backgroundColor: "#263141"}}>
-          <ul className="nav flex-column nav-pills mb-3 module-list">          
+          <ul className="nav flex-column nav-pills mt-3 module-list">          
             {              
                 this.state.Modules.map(module => {
                     return (
@@ -79,7 +89,7 @@ class ModuleList extends React.Component {
                 })                
             }                                     
           </ul>
-          <div className="row mt-3 bg-dark mx-auto" >
+          <div className="row mt-2 bg-module mx-auto" >
             <div className="col-9">
               <input type="text" className="form-control mt-2 mb-2" 
                 id="newModule" 
