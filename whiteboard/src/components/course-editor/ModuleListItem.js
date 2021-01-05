@@ -14,7 +14,7 @@ class ModuleListItem extends React.Component{
         this.setState({
             isEdit: isEdit  
         });
-        this.props.UpdateModule(this.props.Module.id);
+        this.props.UpdateModule(this.props.Module.id, this.state.ModuleTitle);
     }
     
     FormChanged =(event) => {
@@ -26,14 +26,19 @@ class ModuleListItem extends React.Component{
         return(
             !this.state.isEdit ?
             (<li>
-                <a className="nav-link mr-2 mt-3 bg-dark template-module-list-item text-left "  href="#">
-                {this.state.ModuleTitle}
+                <a className=
+                    {this.props.SelectedModule ? 
+                    "nav-link mr-2 mt-3 template-module-list-item text-left bg-active" :
+                     "nav-link mr-2 mt-3 bg-dark template-module-list-item text-left"}                                                               
+                     href='#'
+                     onClick={() => this.props.SelectModule(this.props.Module)}>
+                {this.state.ModuleTitle}                
                 <span className="float-right">
                     <i className="fa fa-edit mr-2" 
                         onClick={() => this.setState({isEdit: true})}
                     ></i>
                     <i className="fa fa-times module-remove " 
-                        onClick={() => this.props.DeleteModule(123,this.props.Module.id)}
+                        onClick={() => this.props.DeleteModule(this.props.SelectedCourseId,this.props.Module.id)}
                     ></i>   
                 </span>            
                 </a>                 
@@ -55,7 +60,7 @@ class ModuleListItem extends React.Component{
                                     onClick={() => this.UpdateModule(false)}
                                 ></i>
                                 <i className="fa fa-times module-remove " 
-                                    onClick={() => this.props.DeleteModule(123,this.props.Module.id)}
+                                    onClick={() => this.setState({isEdit: false})}
                                 ></i>   
                             </span> 
                         </div> 

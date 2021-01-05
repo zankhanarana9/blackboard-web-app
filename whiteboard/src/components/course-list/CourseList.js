@@ -18,7 +18,7 @@ const CourseList = function({Courses}) {
                         Course={course} />    
                    )               
                })
-           })
+           }
         </div>
     )
 }

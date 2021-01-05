@@ -29,3 +29,7 @@ ul.module-list > li > a{
   color: inherit;
   text-decoration: none;
 }
+
+.bg-active {
+  background-color: #56BC8A;
+}
