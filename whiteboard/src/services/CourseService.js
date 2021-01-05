@@ -40,3 +40,7 @@ export const getLessonsByCourseIdAndModuleId= function(courseId, moduleId) {
     console.log(lessons);
     return lessons; 
 }
+
+export const getCourseById =  function(id) {
+    return courses.find(x => x.id === id);
+}

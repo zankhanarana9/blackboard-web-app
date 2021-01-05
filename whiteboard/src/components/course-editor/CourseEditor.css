@@ -33,3 +33,11 @@ ul.module-list > li > a{
 .bg-active {
   background-color: #56BC8A;
 }
+
+.bg-lesson-active {
+  background-color: #263142;
+}
+
+.bg-topic-active {
+  background-color: #56BC8A;
+}

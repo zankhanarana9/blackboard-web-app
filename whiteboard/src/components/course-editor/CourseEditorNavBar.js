@@ -1,6 +1,6 @@
 import React from 'react';
-import { getLessonsByCourseIdAndModuleId } from '../../services/CourseService';
 import LessonTab from './LessonTab';
+import './CourseEditor.css'
 
 const navBarItems = [ "Build", "Pages", "Theme", "Store", "App", "Settings"];
 
@@ -8,10 +8,9 @@ class CourseEditorNavBar extends React.Component {
 
    constructor(props) {
        super(props);
-       let selectedCourseId = this.props.SelectedCourseId;
-       let selectedModule = this.props.SelectedModule;       
+      
        this.state = {
-            Lessons :   selectedModule.lessons
+            Lessons :   this.props.Lessons
        }
    }
    render() {
@@ -32,13 +31,14 @@ class CourseEditorNavBar extends React.Component {
                     &nbsp;Course-Web Developement
                 </a>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    {console.log(this.state.Lessons)}
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">                    
                     {
-                        this.state.Lessons.map(lesson => {
+                        this.props.Lessons.map(lesson => {
                             return (
                                 <LessonTab 
-                                    Lesson = {lesson.title}
+                                    IsSelectedLesson = {this.props.SelectedLesson === lesson}
+                                    SelectLesson={this.props.SelectLesson}
+                                    Lesson = {lesson}
                                     key={lesson.id}/>
                             );
                         })

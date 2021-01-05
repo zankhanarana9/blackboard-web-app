@@ -10,7 +10,7 @@ class ModuleList extends React.Component {
     this.state={
       EditMode: false,
       Modules:this.props.Modules,
-      SelectedModule: this.props.SelectedModule,
+      NewModuleName: "New Module Name",
     }
   }
   
@@ -37,20 +37,24 @@ class ModuleList extends React.Component {
       })  
   }
 
-  addModule = (courseId) => {
-      addModule(courseId)
-        .then(x => {
-          this.setState({
-            Modules: x
-          });
-        });
+  addModule = () => {
+      let modules = this.props.Modules;
+      modules.push({
+        id:(new Date().getTime()),
+        title: this.state.NewModuleName,
+        lessons:[]
+      });
+      this.setState({
+        Modules: modules
+      })
   }
 
-  selectModule = (module) => {        
+  formChanged = (event) => {
     this.setState({
-      SelectedModule: module
-    });    
+      NewModuleName: event.target.value
+    });
   }
+
 
   render(){
       return (             
@@ -61,12 +65,15 @@ class ModuleList extends React.Component {
                     return (
                       <ModuleListItem key={module.id}
                         SelectedCourseId={this.props.CourseId}
-                        SelectedModule={this.state.SelectedModule === module}
-                        Module={module} 
+                        
+                        Module={module}                         
+                        IsModuleSelected={this.props.SelectedModule === module}
+                        SelectedModule = {module}                        
+                        SelectModule = {this.props.SelectModule}
                         DeleteModule = {this.deleteModule}  
                         EditModule = {this.editModule}    
                         UpdateModule = {this.updateModule}
-                        SelectModule = {this.selectModule}
+                        AddModule = {this.addModule}
                         />
                     )
                 })                
@@ -74,13 +81,17 @@ class ModuleList extends React.Component {
           </ul>
           <div className="row mt-3 bg-dark mx-auto" >
             <div className="col-9">
-              <input type="text" className="form-control mt-2 mb-2" id="newModule" placeholder="New Module Name" />
+              <input type="text" className="form-control mt-2 mb-2" 
+                id="newModule" 
+                value={this.state.NewModuleName} 
+                  onChange={this.formChanged}
+                />
             </div>
             <div className="col-2 offset-sm-1">
-              <button className="btn btn-success mt-2  float-right" id="add-module">
-                <i className="fa fa-plus" 
-                  onClick ={() => this.addModule(this.props.CourseId)}
-                ></i>
+              <button className="btn btn-success mt-2  float-right" 
+                id="add-module"
+                onClick ={this.addModule} >
+                <i className="fa fa-plus"></i>
               </button>
             </div>
           </div>              

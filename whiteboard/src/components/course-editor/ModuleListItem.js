@@ -26,19 +26,19 @@ class ModuleListItem extends React.Component{
         return(
             !this.state.isEdit ?
             (<li>
+            
                 <a className=
-                    {this.props.SelectedModule ? 
+                    {this.props.IsModuleSelected ? 
                     "nav-link mr-2 mt-3 template-module-list-item text-left bg-active" :
-                     "nav-link mr-2 mt-3 bg-dark template-module-list-item text-left"}                                                               
-                     href='#'
+                     "nav-link mr-2 mt-3 bg-dark template-module-list-item text-left"}                      
                      onClick={() => this.props.SelectModule(this.props.Module)}>
-                {this.state.ModuleTitle}                
+                {this.props.SelectedModule.title}                
                 <span className="float-right">
                     <i className="fa fa-edit mr-2" 
                         onClick={() => this.setState({isEdit: true})}
                     ></i>
                     <i className="fa fa-times module-remove " 
-                        onClick={() => this.props.DeleteModule(this.props.SelectedCourseId,this.props.Module.id)}
+                        onClick={() => this.props.DeleteModule(this.props.Module)}
                     ></i>   
                 </span>            
                 </a>                 

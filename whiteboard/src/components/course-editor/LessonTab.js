@@ -8,7 +8,12 @@ class LessonTab extends React.Component{
     render() {
         return(
             <li className="nav-item" >
-                <a className="nav-link" href="#">{this.props.Lesson}</a>
+                <a 
+                 className= {this.props.IsSelectedLesson ? "nav-link bg-lesson-active" : "nav-link"}
+                 href="#"
+                 onClick={() => {this.props.SelectLesson(this.props.Lesson)}}>
+                    {this.props.Lesson.title}
+                </a>
             </li>
         )
     }
