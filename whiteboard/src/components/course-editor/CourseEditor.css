@@ -8,10 +8,20 @@
 .float-right {
   float:right;   
 }
+<<<<<<< HEAD
 .module-remove {                    
   color:white
 }
 
+=======
+.module-edit, .lesson-active {                    
+  color:white
+}
+
+.lesson-tab {
+  color: gray
+}
+>>>>>>> react
 ul.module-list > li > a{
   color:white;
 }
@@ -28,4 +38,28 @@ ul.module-list > li > a{
 .topic-list-item:hover {
   color: inherit;
   text-decoration: none;
+<<<<<<< HEAD
+=======
+}
+
+.bg-active {
+  background-color: #56BC8A;
+}
+
+.bg-lesson-active {
+  background-color: #263142;
+}
+
+.bg-topic-active {
+  background-color: #56BC8A;
+}
+
+.template-module-list-item {
+  color: white;
+  font-weight: 500;
+}
+
+.bg-module {
+  background-color: #212529!important;
+>>>>>>> react
 }

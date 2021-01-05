@@ -1,7 +1,10 @@
 import React from 'react';
 import CourseListItem from './CourseListItem';
 import CourseHeader from './CourseHeader';
+<<<<<<< HEAD
 import {Link} from 'react-router-dom';
+=======
+>>>>>>> react
 
 const CourseList = function({Courses}) {
     return (
@@ -14,10 +17,17 @@ const CourseList = function({Courses}) {
             </div>
            {
                Courses.map(course => {
+<<<<<<< HEAD
                    return (<Link to={`/course-editor/${course.id}`} key= {course.id}> 
                     <CourseListItem 
                         Course={course} />
                    </Link>)
+=======
+                   return (
+                    <CourseListItem key= {course.id}
+                        Course={course} />    
+                   )               
+>>>>>>> react
                })
            }
         </div>
