@@ -27,6 +27,11 @@
                   "id":"5",
                   "title": "Attributes",
                   "widgets": []
+                },
+                {
+                  "id":"7",
+                  "title": "JSX",
+                  "widgets": []
                 }
               ]
             },
