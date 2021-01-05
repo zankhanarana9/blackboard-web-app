@@ -1,0 +1,65 @@
+.body {
+  background-color: #DCDCDC;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+.toggle.ios .toggle-handle { border-radius: 20px; }
+
+.float-right {
+  float:right;   
+}
+<<<<<<< HEAD
+.module-remove {                    
+  color:white
+}
+
+=======
+.module-edit, .lesson-active {                    
+  color:white
+}
+
+.lesson-tab {
+  color: gray
+}
+>>>>>>> react
+ul.module-list > li > a{
+  color:white;
+}
+
+.module-list:hover{
+  color:white;
+  text-decoration: none;
+}
+
+.topic-list-item {
+  color: black;
+}
+
+.topic-list-item:hover {
+  color: inherit;
+  text-decoration: none;
+<<<<<<< HEAD
+=======
+}
+
+.bg-active {
+  background-color: #56BC8A;
+}
+
+.bg-lesson-active {
+  background-color: #263142;
+}
+
+.bg-topic-active {
+  background-color: #56BC8A;
+}
+
+.template-module-list-item {
+  color: white;
+  font-weight: 500;
+}
+
+.bg-module {
+  background-color: #212529!important;
+>>>>>>> react
+}
