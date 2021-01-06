@@ -2,8 +2,6 @@ import React from 'react';
 import LessonTab from './LessonTab';
 import './CourseEditor.css'
 
-const navBarItems = [ "Build", "Pages", "Theme", "Store", "App", "Settings"];
-
 class CourseEditorNavBar extends React.Component {
 
    constructor(props) {
