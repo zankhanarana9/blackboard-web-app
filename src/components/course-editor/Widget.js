@@ -57,11 +57,7 @@ const Widget = function() {
             <input type="text" className="form-control" id="widgetName" placeholder="Widget Name" />
           </div>
 
-<<<<<<< HEAD
-          <div className="mb-2 mt-2 ">
-=======
           <div className="mb-2 mt-2 text-left">
->>>>>>> react
             <h4>Preview</h4>
             <h1>Heading Text</h1>
           </div>
