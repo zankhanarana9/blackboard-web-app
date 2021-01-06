@@ -3,27 +3,6 @@ import CourseEditorNavBar from './CourseEditorNavBar';
 import ModuleList from './ModuleList';
 import './CourseEditor.css';
 import Topic from './Topic';
-<<<<<<< HEAD
-import {getModulesByCourseId } from '../../services/CourseService';
-
-class CourseEditor extends React.Component {
-
-    state = {
-        Modules:getModulesByCourseId(123)
-    }     
- 
-   render() {
-        return (            
-            <div className="container-fluid p-0">            
-                <CourseEditorNavBar />
-                <div className="container-fluid">
-                    <div className="row">
-                        <ModuleList 
-                            Modules={this.state.Modules} 
-                            DeleteModule = {this.deleteModule}    
-                            />
-                        <Topic />
-=======
 import CourseService from '../../services/CourseService';
 
 class CourseEditor extends React.Component {
@@ -106,7 +85,6 @@ class CourseEditor extends React.Component {
                             Topics = {this.state.SelectedLesson.topics || []}
                             SelectTopic = {this.selectTopic}
                         />
->>>>>>> react
                     </div>
                 </div>
             </div>
