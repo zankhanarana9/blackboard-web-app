@@ -18,7 +18,7 @@ const CourseListNav = function() {
             <form className="d-flex">
                 <input className="form-control me-2 " 
                     type="search" 
-                    placeholder="Search" 
+                    placeholder="New Course Title" 
                     aria-label="Search" />            
             </form>
             <button type="button" 
