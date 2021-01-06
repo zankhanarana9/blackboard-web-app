@@ -19,7 +19,7 @@
                       {
                           "id": "456",
                           "type": "LIST",
-                          "listType": "ol",
+                          "listType": "ul",
                           "options": "option 1\noption 2\noption 3"
                       },
                       {
@@ -134,7 +134,7 @@
                   "widgets": [
                     {
                         "id": "4345",
-                        "type": "IMAGE",
+                        "type": "LIST",
                         "src": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=672eb03fafd069bd5f8a81602b54a3d3"
                     },
                     {

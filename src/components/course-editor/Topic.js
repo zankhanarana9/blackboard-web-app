@@ -1,9 +1,13 @@
 import React from 'react';
 import TopicPill from './TopicPill';
 import './CourseEditor.css';
-import Widget from './Widget';
 import CourseService from '../../services/CourseService';
+import WidgetListContainer from '../../containers/WidgetListContainer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import WidgetReducer from '../../reducers/WidgetReducer';
 
+const store = createStore(WidgetReducer);
 class Topic extends React.Component {
 
     constructor(props) {
@@ -18,6 +22,7 @@ class Topic extends React.Component {
       let newTopic = {
         id:(new Date()).getTime(),
         title: this.state.newTopicTitle,
+        widgets:[]
       };  
       CourseService.addTopic(this.props.CourseId, 
           this.props.SelectedModule.id, 
@@ -78,18 +83,12 @@ class Topic extends React.Component {
                     </ul>
                 </div>
             </div>
-            <div className="row pr-2">
-                <div className="col-12 text-right">
-                <button type="button" className="btn btn-success mr-2">Save</button>
-                <label htmlFor="btnPreview" className="mr-2">Preview</label>
-                <input type="checkbox" 
-                    id="btnPreview" 
-                    className="m  t-1"
-                    data-toggle="toggle" 
-                    data-style="ios" />
-                </div>
-            </div>
-            <Widget />
+            
+            <Provider store={store}>
+              <WidgetListContainer 
+                topic = {this.props.SelectedTopic}
+              />
+            </Provider>
         </div>
       )
     }
